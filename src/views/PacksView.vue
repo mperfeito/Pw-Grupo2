@@ -1,15 +1,29 @@
 <template>
     
-  <span class="display-4 ms-3">Packs</span>
-  <div class="container my-5">
-    <div class="row">
-      <div class="col-12 mb-5" v-for="t in store.tickets" :key="t.id">
+  <h1 class="label">Buy Your Ticket Now, choose one of our packs!</h1>
+  <div class="container my-5" >
+    <div class="column">
+      <div
+        class="col-md-3 mb-4"
+        v-for="(t, index) in store.tickets"
+        :key="t.id"
+        style="width: fit-content;"
+      >
         <div
-          class="card h-100 position-relative"
-          style="background-color: rgba(184, 78, 255, 0.2)"
+          class="card h-100"
+          :style="{
+            display: 'flex',
+            flexDirection: index % 2 === 0 ? 'row' : 'row-reverse',
+            border: 'none',
+          }"
         >
+          <img :src="t.image" alt="Ticket Image" class="ticket-image animate-image" :style="{
+              marginLeft: index % 2 === 0 ? '5%' : '5%',
+              marginRight: index % 2 === 0 ? '5%' : '5%',
+            }  "/>
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title mb-3"> <i>{{ t.name }}</i></h5>
+            <h5 class="card-title mb-3"> <i>{{ t.name }}</i></h5> 
+            <span class="card-text mb-1">{{ t.description }}</span>
             <span class="card-text mb-1"><strong>Price:</strong> {{ t.price }} €</span>
             <span class="card-text mb-1"><strong>Packs available:</strong> {{ t.availableTickets }}</span>
             <span class="card-text mb-1"><strong>Hours:</strong> {{ t.hours }}</span>
@@ -104,13 +118,97 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  background-color: rgba(184, 78, 255, 0.2);
-}
+
 .error-message {
   display: block;
   margin-top: 6px;
   color: red;
   text-align: right;
+} 
+
+* {
+  font-family: "Ysabeau Infant";
 }
+.label {
+  font-family: "Ysabeau Infant";
+  font-weight: bolder;
+  color: #000000;
+  font-size: 50px;
+  margin-top: 2%;
+  margin: 5%;
+}
+.card-title {
+  font-size: 50px;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 25px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.btn {
+  border: none;
+  background-color: #b84eff;
+  color: white;
+  border-radius: 10px;
+  padding: 4%;
+  font-size: 25px;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+  text-transform: uppercase;
+  font-family: "Ysabeau Infant";
+  margin-top: 2%;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.btn:hover {
+  transform: scale(1.1);
+  padding: 2.5%;
+}
+.btn-dark {
+  border: none;
+  background-color: #b84eff;
+  color: white;
+  border-radius: 10px;
+  padding: 4%;
+  font-size: 25px;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+  text-transform: uppercase;
+  font-family: "Ysabeau Infant";
+  margin-top: 2%;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.ticket-image {
+  height: 490px;
+  margin: 5%;
+  padding-right: 10%;
+} 
+
+.animate-image {
+  animation: move 1s linear infinite;
+}
+
+.animate-image:hover {
+  animation-play-state: paused;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(20px);
+  }
+  150% {
+    transform: translateX(0);
+  }
+}
+
 </style>
