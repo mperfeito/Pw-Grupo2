@@ -29,7 +29,6 @@
         <li>Breakdance</li> 
         <li>Hip-Hop</li>
         </ul> 
-        <h2>Spots Left: 29</h2> 
         <div>  
         <router-link to="/calendar" class="btn2">See full calendar</router-link>
         </div>
@@ -49,8 +48,7 @@
         <ul> 
         <li>Ballet</li> 
         <li>Comtemporany</li>
-        </ul> 
-        <h2>Spots Left: 29</h2> 
+        </ul>  
     <div>  
         <router-link to="/calendar" class="btn3">See full calendar</router-link>
     </div>
@@ -78,7 +76,6 @@
         <li>Salsa</li> 
         <li>Bachata</li>
         </ul> 
-        <h2>Spots Left: 29</h2> 
         <div> 
             <router-link to="/calendar" class="btn2">See full calendar</router-link>
         </div>
@@ -245,7 +242,7 @@ ul{
 
 .fourth_container{ 
     padding-top: 5%;
-    display: flex; 
+    display: flex;  
     flex-direction: row; 
     margin: 5%; 
     gap: 20%; 
@@ -254,10 +251,10 @@ ul{
 }   
 
 .img_5{ 
-    --color: #B84EFF; /* Cor da borda */
-    --border: 8px;    /* Espessura da borda */
-    --offset: 20px;   /* Distância do efeito */
-    --gap: 10px;       /* Espaço ao passar o mouse */
+    --color: #B84EFF; 
+    --border: 8px;    
+    --offset: 20px;   
+    --gap: 10px;      
     --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
     --_o: calc(3 * var(--offset));
     padding: 
@@ -290,7 +287,8 @@ ul{
     right: 0%;  
     top: 20%; 
     position: absolute; 
-}
+} 
+
 
 
 </style>

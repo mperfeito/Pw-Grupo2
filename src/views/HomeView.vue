@@ -439,7 +439,7 @@ export default {
 }  
 .BTN_calendar:hover{ 
   transform: scale(1.1);
-  padding: 2.5%;
+  padding: 1%;
 }
 
 

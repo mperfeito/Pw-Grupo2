@@ -29,7 +29,7 @@
             <span class="card-text mb-1"><strong>Hours:</strong> {{ t.hours }}</span>
             <span class="card-text"><strong>Type:</strong> {{ t.type }}</span>
             
-            <div class="d-flex position-absolute bottom-0 end-0 m-2">
+            <div class="button-container mt-3">
               <div class="dropdown me-2">
                 <button
                   v-if="t.id !== 4"
@@ -71,13 +71,13 @@
               <button
                 v-if="t.id !== 4"
                 @click="checkDay(t.id)"
-                class="btn btn-dark"
+                class="btn"
               >
                 Pay
               </button>
 
               <router-link v-if="t.id == 4" :to="{ name: 'calendar' }">
-                <button class="btn btn-outline-dark">See calendar</button>
+                <button class="btn ">See calendar</button>
               </router-link>
             </div>
           </div>
@@ -147,44 +147,36 @@ export default {
 .card-body {
   display: flex;
   flex-direction: column;
-  float: right;
+  
 }
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: auto; 
+  gap: 10px; 
+}
+
 .btn {
   border: none;
   background-color: #b84eff;
   color: white;
-  border-radius: 10px;
-  padding: 4%;
+  border-radius: 10px; 
   font-size: 25px;
   font-weight: 400;
   width: fit-content;
   height: fit-content;
   text-transform: uppercase;
   font-family: "Ysabeau Infant";
-  margin-top: 2%;
   text-decoration: none;
   transition: transform 0.3s ease;
-}
+} 
+
 .btn:hover {
   transform: scale(1.1);
-  padding: 2.5%;
+  padding: 1.5%;
 }
-.btn-dark {
-  border: none;
-  background-color: #b84eff;
-  color: white;
-  border-radius: 10px;
-  padding: 4%;
-  font-size: 25px;
-  font-weight: 400;
-  width: fit-content;
-  height: fit-content;
-  text-transform: uppercase;
-  font-family: "Ysabeau Infant";
-  margin-top: 2%;
-  text-decoration: none;
-  transition: transform 0.3s ease;
-}
+
 .ticket-image {
   height: 490px;
   margin: 5%;

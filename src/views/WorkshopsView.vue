@@ -28,7 +28,6 @@
             <li>Freestyle</li> 
             <li>Popping & Locking</li>
         </ul> 
-        <h2>Spots Left: 29</h2> 
         <div> 
             <router-link to="/calendar" class="btn2">See full calendar</router-link>
         </div>
@@ -49,7 +48,6 @@
             <li>Classic technique</li> 
             <li>Improvisation Contemporary Dance</li>
         </ul> 
-        <h2>Spots Left: 29</h2> 
         <div> 
             <router-link to="/calendar" class="btn3">See full calendar</router-link>
         </div>
@@ -76,7 +74,6 @@
             <li>Rumba</li> 
             <li>Bachata</li>
         </ul> 
-        <h2>Spots Left: 29</h2> 
         <div> 
             <router-link to="/calendar" class="btn2">See full calendar</router-link>
         </div>
@@ -147,10 +144,10 @@
 }  
 
 .img2{ 
-    --color: #8A89D4; /* Cor da borda */
-    --border: 8px;    /* Espessura da borda */
-    --offset: 20px;   /* Distância do efeito */
-    --gap: 10px;       /* Espaço ao passar o mouse */
+    --color: #8A89D4; 
+    --border: 8px;    
+    --offset: 20px;   
+    --gap: 10px;       
     --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
     --_o: calc(3 * var(--offset));
     padding: 
@@ -274,10 +271,10 @@ ul{
 }   
 
 .img_5{ 
-    --color: #8A89D4; /* Cor da borda */
-    --border: 8px;    /* Espessura da borda */
-    --offset: 20px;   /* Distância do efeito */
-    --gap: 10px;       /* Espaço ao passar o mouse */
+    --color: #8A89D4; 
+    --border: 8px;    
+    --offset: 20px;   
+    --gap: 10px;       
     --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
     --_o: calc(3 * var(--offset));
     padding: 
