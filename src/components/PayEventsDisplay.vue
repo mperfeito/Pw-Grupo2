@@ -37,10 +37,10 @@
         </div>
       </div>
     </div>
-    <div class="text-end mt-3">
+    <div class="mt-3 d-flex justify-content-center">
       <router-link to="/profile">
         <button v-if="selectedEvent" @click="payEventTicket(selectedEvent.id)" class="btn btn-dark">
-          Pay
+          PAY
         </button>
       </router-link>
     </div>
@@ -142,9 +142,17 @@ export default {
 }
 
 .btn-dark {
-  background-color: #ff69b4;
-  border-color: #ff69b4;
+  background-color: #b84eff;
+  border-color: #b84eff;
   color: #fff;
   font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem 3.5rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #a64edb;
+  transform: scale(1.1);
 }
 </style>
