@@ -387,10 +387,10 @@ export default {
     height: 550px; 
     margin-bottom: 10%;  
     margin-left: 5%; 
-    --color: #B84EFF; /* Cor da borda */
-    --border: 8px;    /* Espessura da borda */
-    --offset: 20px;   /* Distância do efeito */
-    --gap: 5px;       /* Espaço ao passar o mouse */
+    --color: #B84EFF; 
+    --border: 8px;    
+    --offset: 20px;   
+    --gap: 5px;       
     --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)), var(--color) 0;
     --_o: calc(3 * var(--offset));
     padding: 
@@ -572,7 +572,7 @@ export default {
 }  
 .BTN_calendar:hover{ 
   transform: scale(1.1);
-  padding: 2.5%;
+  padding: 1%;
 }
 
 
