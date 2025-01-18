@@ -1,43 +1,81 @@
 <template>
-
   <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-6">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mt-1">
-              <button
-                class="btn btn-outline-dark position-relative"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight"
-              >
-                <i class="bi bi-bell-fill"></i>
-                <span
-                  v-if="notifications.length"
-                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                >
-                  {{ notifications.length }}
-                </span>
-              </button>
-              <button @click="logoutUser()" class="btn btn-outline-dark">
-                Logout
-              </button>
+        <div class="background-rectangle"></div>
+    <div class="row content-row">
+      <div class="col-12 col-md-4 position-relative">
+        <div class="profile-picture">
+          <img src="../assets/profile/profile-pic.png" alt="Profile Picture" class="profile-pic">
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card-title-container">
+              <h4 class="card-title-text invisible">Perfil</h4>
             </div>
-            <div class="mt-4">
-              <h5 class="card-title">{{ currentUser.name }}</h5>
-              <p class="card-text">{{ currentUser.email }}</p>
+            <div class="card card-profile">
+              <div class="card-body">
+                <div class="mt-4 text-center profile-info">
+                  <h5 class="card-title">{{ currentUser.name }}</h5>
+                  <p class="card-text">{{ currentUser.email }}</p>
+                    <div class="profile-divider "></div>
+                </div>
+                <div class="d-flex flex-column align-items-center">
+                  <button
+                    type="button"
+                    class="btn btn-change  mt-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editProfileModal"
+                  >
+                    CHANGE INFO
+                  </button>
+                  <button @click="logoutUser()" class="btn btn-logout mt-3">
+                    LOGOUT
+                  </button>
+                </div>
+              </div>
             </div>
-
-            <button
-              type="button"
-              class="btn btn-dark mt-3"
-              data-bs-toggle="modal"
-              data-bs-target="#editProfileModal"
+          </div>
+        </div>
+      </div>
+       <div class="col-12 col-md-8">
+          <div class="card-title-container d-flex justify-content-between align-items-center">
+          <h4 class="card-title-text">My Tickets</h4>
+          <button
+            class="btn btn-outline-light position-relative"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+          >
+            <i class="bi bi-bell-fill"></i>
+            <span
+              v-if="notifications.length"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
             >
-              Change Info
-            </button>
+              {{ notifications.length }}
+            </span>
+          </button>
+        </div>
+
+        <div class="w-100 mt-4 card-yourTickets position-relative">
+          <img src="../assets/profile/ticket-image.png" alt="Background Image" class="background-image">
+          <div class="row position-absolute top-0 start-0 w-100 h-100">
+            <div
+              v-for="(ticket, index) in uniqueTickets"
+              :key="index"
+              class="col-12 col-md-6 mb-3"
+            >
+              <div class="card card-tickets w-100">
+                <div class="card-body">
+                  <h5 class="card-title">{{ ticket.name }}</h5>
+                  <div class="d-flex flex-column">
+                    <span class="card-text"><strong>Type: </strong>{{ ticket.type }}</span>
+                    <span class="card-text"><strong>Hours: </strong>{{ ticket.hours }}</span>
+                    <span class="card-text"><strong>Price: </strong>{{ ticket.price }} €</span>
+                    <span class="card-text"><strong>Quantity: </strong>{{ ticket.quantity }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -133,29 +171,6 @@
         </ol>
       </div>
     </div>
-
-    <div class="w-75 ms-3 mt-4">
-      <span class="display-4">Your Tickets</span>
-      <div class="row">
-        <div
-          v-for="(ticket, index) in uniqueTickets"
-          :key="index"
-          class="col-12 col-md-6 mb-3"
-        >
-          <div class="card mt-4">
-            <div class="card-body">
-              <h5 class="card-title">{{ ticket.name }}</h5>
-              <div class="d-flex flex-column">
-                <span class="card-text">Type: {{ ticket.type }}</span>
-                <span class="card-text">Hours: {{ ticket.hours }}</span>
-                <span class="card-text">Price: {{ ticket.price }} €</span>
-                <span class="card-text">Quantity: {{ ticket.quantity }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -218,13 +233,140 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
 .container {
   max-width: 1200px;
+  }
+
+  .background-rectangle {
+  position: absolute;
+  top: 7rem;
+  left: 0;
+  width: 100%;
+  height: 15rem;
+  background-color: #dcdcf2;
+  z-index: -1; 
 }
 
-.btn {
-  margin-right: 10px;
+.content-row {
+  margin-top: 14rem; 
+}
+
+.container .card-profile{
+  background-color: #8a89d4;
+  z-index: 1;
+}
+
+.container .card-title-container{
+  background-color: #b84eff;
+  padding: 1.9rem;
+  margin-bottom: 1.5rem;
+  z-index: 1;
+}
+
+.card-title-text{
+  color: white;
+  font-weight: 800;
+  font-size: 1.7rem;
+}
+
+.profile-picture {
+  position: absolute;
+  top: 2rem;
+  left: 12.5rem;
+  transform: translateX(-50%);
+  width: 12rem;
+  height: 12rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: auto;
+}
+
+.profile-info .card-title {
+  margin-top: 7rem;
+  color: #ffffff;
+  font-size: 1.7rem;
+}
+
+.profile-info .card-text {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.profile-divider {
+  border-bottom: 0.2rem solid white;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-change{
+  padding: 0.8rem 3.4rem;
+  color: black;
+  font-weight: 600;
+  font-size: 1.2rem;
+  background-color: #F1DCFF;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-change:hover {
+  transform: scale(1.1);
+  background-color: #d1b3ff;
+}
+
+.btn-logout {
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  padding: 0.7rem 5rem;
+  font-size: 1.2rem;
+  margin-bottom: 2.2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+  transform: scale(1.1);
+  background-color: #e6e6e6;
+}
+
+.card-profile{
+  z-index: 1;
+}
+
+.container .card-yourTickets{
+  position: relative;
+  background-color: #8a89d4;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.card-yourTickets .row {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0.1rem;
+  margin-top: 8rem;
+}
+
+.card-yourTickets .background-image {
+  margin: 2rem;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.card-tickets .card-title{
+  color: #8a89d4;
+  font-size: 1.35rem;
+  font-weight: 650;
 }
 
 .list-group-item {
