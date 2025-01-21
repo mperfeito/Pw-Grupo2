@@ -39,7 +39,10 @@
     };
 </script>
 
-<style lang="css" scoped>  
+<style lang="css" scoped>   
+* {
+    font-family: 'Ysabeau Infant';  
+} 
 .nav-item {
   position: relative; 
   

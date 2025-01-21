@@ -166,6 +166,9 @@ export default {
 
 
 <style lang="scss" scoped>   
+* {
+    font-family: 'Ysabeau Infant';  
+}  
 
 .Rect1{  
     position: absolute;

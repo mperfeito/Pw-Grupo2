@@ -20,7 +20,10 @@ const store = useUsersStore();
   <Footer></Footer>
 </template>
 
-<style scoped>
+<style scoped> 
+* {
+    font-family: 'Ysabeau Infant';  
+} 
 
 
 </style>
