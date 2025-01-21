@@ -35,8 +35,7 @@ test('interage com a store e navega corretamente', async () => {
     },
   });
 
- 
-  
+
   await wrapper.find('router-link[to="/register"]').trigger('click');
   expect(router.currentRoute.value.fullPath).toBe('/register');
 });
