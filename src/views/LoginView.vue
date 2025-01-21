@@ -17,7 +17,7 @@ export default {
     return {
       store: useUsersStore(),
       message: "",
-    };
+    };                                                                                                                                                                        
   },
   methods: {
     loginUser(email, password) {
