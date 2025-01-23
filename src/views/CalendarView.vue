@@ -7,10 +7,10 @@
           <input
             type="text"
             v-model="searchQuery"
-            class="form-control"
+            class="form-control fs-5"
             placeholder="Search..."
           />
-          <button class="btn btn-search" @click="filterEvents">
+          <button class="btn btn-search " @click="filterEvents">
             <i class="bi bi-search"></i>
           </button>
         </div>
@@ -19,22 +19,22 @@
     <div class="row">
       <div class="col-md-4 mb-4">
         <div class="card card-day text-white">
-          <div class="card-body text-center">
-            <h5 class="card-title m-0">FRIDAY</h5>
+          <div class="card-body text-center p-2">
+            <h5 class="card-title m-0 fs-4">FRIDAY</h5>
           </div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card card-day text-white">
-          <div class="card-body text-center">
-            <h5 class="card-title m-0">SATURDAY</h5>
+          <div class="card-body text-center p-2">
+            <h5 class="card-title m-0 fs-4">SATURDAY</h5>
           </div>
         </div>
       </div>
       <div class="col-md-4 mb-4">
         <div class="card card-day text-white">
-          <div class="card-body text-center">
-            <h5 class="card-title m-0">SUNDAY</h5>
+          <div class="card-body text-center p-2">
+            <h5 class="card-title m-0 fs-4">SUNDAY</h5>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
                 <router-link
                   :to="{ name: 'payment', params: { idEvent: event.id } }"
                 >
-                  <i class="bi bi-plus-square-fill text-black fs-4 icon-hover"></i>
+                  <i class="bi bi-plus-square-fill text-black fs-5 "></i>
                 </router-link>
               </div>
             </div>

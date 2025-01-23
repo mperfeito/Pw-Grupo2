@@ -1,13 +1,11 @@
 <template>
-    
-  <h1 class="label">Buy Your Ticket Now, choose one of our packs!</h1>
-  <div class="container my-5" >
+  <div class="container my-5">
     <div class="column">
       <div
         class="col-md-3 mb-4"
         v-for="(t, index) in store.tickets"
         :key="t.id"
-        style="width: fit-content;"
+        style="width: fit-content"
       >
         <div
           class="card h-100"
@@ -17,26 +15,37 @@
             border: 'none',
           }"
         >
-          <img :src="t.image" alt="Ticket Image" class="ticket-image animate-image" :style="{
+          <img
+            :src="t.image"
+            alt="Ticket Image"
+            class="ticket-image animate-image"
+            :style="{
               marginLeft: index % 2 === 0 ? '5%' : '5%',
               marginRight: index % 2 === 0 ? '5%' : '5%',
-            }  "/>
+            }"
+          />
           <div class="card-body d-flex flex-column">
-            <h5 class="card-title mb-3"> <i>{{ t.name }}</i></h5> 
-            <span class="card-text mb-1">{{ t.description }}</span>
-            <span class="card-text mb-1"><strong>Price:</strong> {{ t.price }} €</span>
-            <span class="card-text mb-1"><strong>Packs available:</strong> {{ t.availableTickets }}</span>
-            <span class="card-text mb-1"><strong>Hours:</strong> {{ t.hours }}</span>
-            <span class="card-text"><strong>Type:</strong> {{ t.type }}</span>
-            
-            <div class="button-container mt-3">
+            <span class="fs-1 fw-bold card-title mb-3"> {{ t.name }}</span>
+            <span class="card-text mb-1 fs-4">{{ t.description }}</span>
+            <div class="d-flex flex-column mt-5">
+              <span class="card-text mb-1 fs-4"
+                ><i>Price:</i> {{ t.price }} €</span
+              >
+
+              <span class="card-text mb-1 fs-4"
+                ><i>Hours:</i> {{ t.hours }}</span
+              >
+              <span class="card-text fs-4"><i>Type:</i> {{ t.type }}</span>
+            </div>
+            <div class="button-container mt-5">
               <div class="dropdown me-2">
                 <button
                   v-if="t.id !== 4"
-                  class="btn btn-outline-dark dropdown-toggle"
+                  class="btn fs-5 dropdown-toggle"
                   type="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  style="background-color: #b84eff; color: white"
                 >
                   Select day
                 </button>
@@ -72,12 +81,13 @@
                 v-if="t.id !== 4"
                 @click="checkDay(t.id)"
                 class="btn"
+                style="border-color: #B84EFF; color: #B84EFF;"
               >
                 Pay
               </button>
 
               <router-link v-if="t.id == 4" :to="{ name: 'calendar' }">
-                <button class="btn ">See calendar</button>
+                <button class="btn fs-5 " style="background-color: #b84eff; color: white">See calendar</button>
               </router-link>
             </div>
           </div>
@@ -90,7 +100,6 @@
     </div>
   </div>
 </template>
-
 
 <script>
 import { useTicketsStore } from "@/stores/tickets.js";
@@ -118,25 +127,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .error-message {
   display: block;
   margin-top: 6px;
   color: red;
   text-align: right;
-} 
+  font-size: 20px;
+}
 
 * {
   font-family: "Ysabeau Infant";
 }
-.label {
-  font-family: "Ysabeau Infant";
-  font-weight: bolder;
-  color: #000000;
-  font-size: 50px;
-  margin-top: 2%;
-  margin: 5%;
-}
+
 .card-title {
   font-size: 50px;
   font-weight: bold;
@@ -147,41 +149,20 @@ export default {
 .card-body {
   display: flex;
   flex-direction: column;
-  
 }
 
 .button-container {
   display: flex;
   flex-direction: row;
-  margin-top: auto; 
-  gap: 10px; 
-}
-
-.btn {
-  border: none;
-  background-color: #b84eff;
-  color: white;
-  border-radius: 10px; 
-  font-size: 25px;
-  font-weight: 400;
-  width: fit-content;
-  height: fit-content;
-  text-transform: uppercase;
-  font-family: "Ysabeau Infant";
-  text-decoration: none;
-  transition: transform 0.3s ease;
-} 
-
-.btn:hover {
-  transform: scale(1.1);
-  padding: 1.5%;
+ 
+  
 }
 
 .ticket-image {
-  height: 490px;
+  height: 400px;
   margin: 5%;
   padding-right: 10%;
-} 
+}
 
 .animate-image {
   animation: move 1s linear infinite;
@@ -202,5 +183,4 @@ export default {
     transform: translateX(0);
   }
 }
-
 </style>

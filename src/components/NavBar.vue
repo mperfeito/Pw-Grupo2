@@ -1,35 +1,39 @@
 <template>
-      <div>
-        <nav class="navbar navbar-expand-lg" style="background-color: #B84EFF; font-family:'Ysabeau Infant';">
-        <div class="container-fluid"> 
-            <router-link to="/home"><a class="navbar-brand" style="margin-left: 2%; margin: 1%; height: 80px;" href="#"><img style="height: 60px;" src="../assets/logo/logoBranco.png" alt=""></a>
-            </router-link>
-            <div class="nav justify-content-end" id="navbarSupportedContent" style="margin-right: 1%; ">
-                <ul class="nav">
-                    <li class="nav-item"> 
-                    <router-link to="/about-us" class="nav-link active"> About us</router-link>
-                    </li>
-                    <li class="nav-item">
-                    <router-link to="/calendar" class="nav-link active"> Calendar </router-link>
-                    </li>
-                    <li class="nav-item">
-                    <router-link to="/packs" class="nav-link active"> Packs</router-link>
-                    </li>
-                    <li class="nav-item">
-                    <router-link to="/workshops" class="nav-link active">Workshops</router-link>
-                    </li>
-                    <li class="nav-item">
-                    <router-link to="/shows" class="nav-link active">Shows</router-link>
-                    </li> 
-                    <li class="nav-item">
-                    <router-link to="/profile"class="nav-link active"><img class="profile" src="../assets/logo/profile.png" alt=""></router-link>
-                    </li>
-                    
-                </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+  <div>
+    <nav class="navbar navbar-expand-lg" style="background-color: #B84EFF; font-family:'Ysabeau Infant'; height: 100px;">
+      <div class="container-fluid">
+        <router-link to="/home">
+          <a class="navbar-brand" style="margin-left: 2%; margin: 1%;">
+            <img style="height: 60px; width: auto;" src="../assets/logo/logoBranco.png" alt="">
+          </a>
+        </router-link>
+        <div class="nav justify-content-end" id="navbarSupportedContent" style="margin-right: 1%;">
+          <ul class="nav">
+            <li class="nav-item">
+              <router-link to="/about-us" class="nav-link active"> About us</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/calendar" class="nav-link active"> Calendar </router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/packs" class="nav-link active"> Packs</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/workshops" class="nav-link active">Workshops</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/shows" class="nav-link active">Shows</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link to="/profile" class="nav-link active">
+                <img class="profile" src="../assets/logo/profile.png" alt="">
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -75,7 +79,7 @@
 }
 
 .nav-link:hover::after {
-  width: 100%; /* Expand underline on hover */
+  width: 100%; 
 }
 
 .nav-link:hover {
@@ -87,7 +91,7 @@
   color: white;
 } 
 
-/* Remove default focus outline */
+
 .nav-link:focus, 
 .router-link-active {
   outline: none;

@@ -1,11 +1,11 @@
 <template> 
 
-                                <!-- section 1 -->
+                            
     <div> 
         <div class="first_container"> 
             <div class="info1_container">  
             <h1 class="label">DanceFest 2024</h1>
-            <p class="content">A celebration of rhythm, movement, and creativity! Join us for electrifying performances, workshops, and nonstop energy.</p>
+            <p class="content fs-3 mt-5">A celebration of rhythm, movement, and creativity! Join us for electrifying performances, workshops, and nonstop energy.</p>
         </div> 
         <div class="imgs"> 
             <img src="../assets/about us/img1.png" alt=""> 
@@ -16,7 +16,7 @@
     </div>  
     
 
-                                <!-- section 2 --> 
+                             
     <div class="second_container"> 
         <div class="gallery">
             <div class="gallery-item">
@@ -34,7 +34,7 @@
         </div> 
         <div class="info2_container"> 
             <h1 class="label">Our Team</h1> 
-            <p class="content">A passionate group of skilled performers and instructors, our dancers bring creativity, energy, and expertise to every step—dedicated to inspiring and sharing the joy of movement with all!</p>
+            <p class="content fs-3 mt-5">A passionate group of skilled performers and instructors, our dancers bring creativity, energy, and expertise to every step—dedicated to inspiring and sharing the joy of movement with all!</p>
         </div>
     </div>  
 
@@ -167,8 +167,13 @@
     display: flex; 
     flex-direction: row; 
     margin: 5%; 
-    margin-bottom: 10%;
+    margin-bottom: 20%;
+    
 } 
+
+.info1_container {
+    margin-top:10%;
+}
 
 .rect{ 
     background-color: #DCDCF2;   
