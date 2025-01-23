@@ -1,53 +1,66 @@
 <template>
-  <div class="container my-4">
-    <div v-if="selectedEvent" class="card">
+  <div
+    class="container my-4 d-flex align-items-center justify-content-center mb-5"
+  >
+    <div v-if="selectedEvent" class="card w-75">
       <div class="card-body">
-        <div class="d-flex justify-content-around mb-3 align-items-center">
-          <div class="event-image">
-            <img src="../assets/payment/ticket.png" alt="Event Image" class="img-fluid">
-          </div>
+        <div
+          class="d-flex justify-content-around align-items-center justify-content-center"
+        >
+          <div class="event-image"></div>
           <div class="d-flex flex-column">
-            <h2 class="card-title">{{ selectedEvent.name }}</h2>
-            <span class="card-text event-info">
-              {{ selectedEvent.hours }}
-            </span>
-            <div style="height: 8rem;"></div>
-            <span class="card-text event-info type">
-              <strong>{{ selectedEvent.type }}</strong>
-            </span>
+            <span class="card-title fw-bold fs-3">{{
+              selectedEvent.name
+            }}</span>
+            <span class="card-text event-info"
+              ><i>Hours: </i>{{ selectedEvent.hours }}</span
+            >
+            <span class="card-text event-info type"
+              ><i>Type: </i>{{ selectedEvent.type }}</span
+            >
+            <span class="card-text event-info type"
+              ><i>Day: </i>{{ selectedEvent.day }}</span
+            >
           </div>
           <div class="d-flex flex-column align-items-center quantity">
             <p class="card-text">
               <strong>Quantity: </strong>
             </p>
             <div>
-              <i @click="removeTickets" class="bi bi-dash-square-fill"></i>
+              <i @click="removeTickets" class="bi bi-dash-square-fill fs-6"></i>
               {{ ticketsNumber }}
-              <i @click="addMoreTickets" class="bi bi-plus-square-fill"></i>
+              <i
+                @click="addMoreTickets"
+                class="bi bi-plus-square-fill fs-6"
+              ></i>
             </div>
           </div>
-          <div class="d-flex flex-column align-items-end total-price">
+          <div class="d-flex flex-column align-items-center total-price">
             <p class="card-text">
               <strong>Total Price:</strong>
             </p>
-            <p class="card-text price">
-              {{ totalPrice() }} €
-            </p>
+            <p class="card-text price">{{ totalPrice() }} €</p>
           </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-5">
+          <router-link to="/profile">
+            <button
+              style="background-color: #b84eff; color: white"
+              v-if="selectedEvent"
+              @click="payEventTicket(selectedEvent.id)"
+              class="btn fs-5"
+            >
+              Pay
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
-    <div class="mt-3 d-flex justify-content-center">
-      <router-link to="/profile">
-        <button v-if="selectedEvent" @click="payEventTicket(selectedEvent.id)" class="btn btn-dark">
-          PAY
-        </button>
-      </router-link>
-    </div>
+    <div class="mt-3"></div>
     <span>{{ message }}</span>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -93,17 +106,17 @@ export default {
 }
 
 .card-body {
-  padding: 16px; 
+  padding: 16px;
 }
 
-.img-fluid{
+.img-fluid {
   height: 15rem;
-  width: 10rem,
+  width: 10rem;
 }
 
 .card-title {
-  color: #000; 
-  font-size: 1.5rem; 
+  color: #000;
+  font-size: 1.5rem;
   margin-left: -10rem;
 }
 
@@ -112,33 +125,22 @@ export default {
   font-size: 1.1rem;
 }
 
-.event-info{
+.event-info {
   margin-left: -10rem;
 }
 
-.quantity{
+.quantity {
   font-size: 1.5rem;
 }
 
-.total-price{
+.total-price {
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
 }
 
-.price{
+.price {
   font-size: 1.3rem;
-}
-
-.bi-dash-square-fill, .bi-plus-square-fill {
-  font-size: 1.5rem; 
-  cursor: pointer; 
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.bi-dash-square-fill:hover, .bi-plus-square-fill:hover {
-  color: #b84eff;
-  transform: scale(1.2);
 }
 
 .btn-dark {

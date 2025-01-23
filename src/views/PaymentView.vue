@@ -14,7 +14,7 @@
       @pay-event="payIndividualTicket"
       :message="ticketMessage"
     ></EventsDisplay>
-    <div class="payment-container">
+    <div class="payment-container  ">
       <div class="payment-details">
         <h2>Payment Details</h2>
         <p>Complete your purchase and secure your spot today!</p>

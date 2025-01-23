@@ -21,14 +21,14 @@
                 <div class="d-flex flex-column align-items-center">
                   <button
                     type="button"
-                    class="btn btn-change  mt-3"
+                    class="btn btn-light fs-5  mt-3"
                     data-bs-toggle="modal"
                     data-bs-target="#editProfileModal"
                   >
-                    CHANGE INFO
+                    Change info
                   </button>
-                  <button @click="logoutUser()" class="btn btn-logout mt-3">
-                    LOGOUT
+                  <button @click="logoutUser()" class="btn btn-outline-light fs-5  mt-3">
+                    Logout
                   </button>
                 </div>
               </div>
