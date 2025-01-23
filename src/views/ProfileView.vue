@@ -1,33 +1,49 @@
 <template>
   <div class="container mt-5">
-        <div class="background-rectangle"></div>
+    <div class="background-rectangle"></div>
     <div class="row content-row">
       <div class="col-12 col-md-4 position-relative">
         <div class="profile-picture">
           <img src="../assets/profile/profile-pic.png" alt="Profile Picture" class="profile-pic">
         </div>
+
         <div class="row justify-content-center">
           <div class="col-12">
-            <div class="card-title-container">
-              <h4 class="card-title-text invisible">Perfil</h4>
+            <div class="card-title-container d-flex justify-content-end align-items-center">
+              <button
+                class="btn btn-outline-light position-relative notification-button ms-auto"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <i class="bi bi-bell-fill"></i>
+                <span
+                  v-if="notifications.length"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"
+                >
+                  {{ notifications.length }}
+                </span>
+              </button>
             </div>
+
             <div class="card card-profile">
               <div class="card-body">
                 <div class="mt-4 text-center profile-info">
                   <h5 class="card-title">{{ currentUser.name }}</h5>
                   <p class="card-text">{{ currentUser.email }}</p>
-                    <div class="profile-divider "></div>
+                  <div class="profile-divider "></div>
                 </div>
                 <div class="d-flex flex-column align-items-center">
                   <button
                     type="button"
-                    class="btn btn-light fs-5  mt-3"
+                    class="btn btn-light fs-5 mt-3"
                     data-bs-toggle="modal"
                     data-bs-target="#editProfileModal"
                   >
                     Change info
                   </button>
-                  <button @click="logoutUser()" class="btn btn-outline-light fs-5  mt-3">
+                  <button @click="logoutUser()" class="btn btn-outline-light fs-5 mt-3">
                     Logout
                   </button>
                 </div>
@@ -36,42 +52,26 @@
           </div>
         </div>
       </div>
-       <div class="col-12 col-md-8">
-          <div class="card-title-container d-flex justify-content-between align-items-center">
-          <h4 class="card-title-text">My Tickets</h4>
-          <button
-            class="btn btn-outline-light position-relative"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-          >
-            <i class="bi bi-bell-fill"></i>
-            <span
-              v-if="notifications.length"
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark"
-            >
-              {{ notifications.length }}
-            </span>
-          </button>
-        </div>
 
-        <div class="w-100 mt-4 card-yourTickets position-relative">
-          <img src="../assets/profile/ticket-image.png" alt="Background Image" class="background-image">
-          <div class="row position-absolute top-0 start-0 w-100 h-100">
+      <div class="col-12 col-md-8">
+        <div class="card-title-container">
+          <h4 class="card-title-text">Your Tickets</h4>
+        </div>
+        <div class="w-100 mt-4 card-yourTickets">
+          <div class="row">
             <div
               v-for="(ticket, index) in uniqueTickets"
               :key="index"
-              class="col-12 col-md-6 mb-3"
+              class="col-12 col-md-12 mb-3"
             >
-              <div class="card card-tickets w-100">
+              <div class="card card-tickets mt-4 w-100">
                 <div class="card-body">
                   <h5 class="card-title">{{ ticket.name }}</h5>
                   <div class="d-flex flex-column">
-                    <span class="card-text"><strong>Type: </strong>{{ ticket.type }}</span>
-                    <span class="card-text"><strong>Hours: </strong>{{ ticket.hours }}</span>
-                    <span class="card-text"><strong>Price: </strong>{{ ticket.price }} €</span>
-                    <span class="card-text"><strong>Quantity: </strong>{{ ticket.quantity }}</span>
+                    <span class="card-text">Type: {{ ticket.type }}</span>
+                    <span class="card-text">Hours: {{ ticket.hours }}</span>
+                    <span class="card-text">Price: {{ ticket.price }} €</span>
+                    <span class="card-text">Quantity: {{ ticket.quantity }}</span>
                   </div>
                 </div>
               </div>
@@ -268,7 +268,7 @@ export default {
 .card-title-text{
   color: white;
   font-weight: 800;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .profile-picture {
@@ -351,16 +351,8 @@ export default {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-left: 0.1rem;
-  margin-top: 8rem;
-}
-
-.card-yourTickets .background-image {
-  margin: 2rem;
-  object-fit: cover;
-  z-index: 0;
+  width: 60%;
 }
 
 .card-tickets .card-title{
@@ -388,5 +380,41 @@ export default {
 
 .mt-4 {
   margin-top: 1.5rem;
+}
+
+.modal-content {
+  color: white; 
+}
+
+.modal-header {
+  border-bottom: none; 
+  background-color: #b84eff; 
+}
+
+.modal-header .modal-title {
+  color: white;
+}
+
+.modal-body {
+  color: white; 
+}
+
+.form-label {
+  color: #000; 
+}
+
+.form-control {
+  background-color: #dcdcf2; 
+  color: black; 
+}
+
+.btn-dark {
+  background-color: #8a89d4; 
+  border-color: #8a89d4; 
+}
+
+.btn-dark:hover {
+  background-color: #6f6db8;
+  border-color: #6f6db8;
 }
 </style>
